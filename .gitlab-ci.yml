@@ -1,0 +1,42 @@
+image: node:lts-alpine3.19
+
+stages:
+  - install_dependencies
+  - test
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: install_dependencies
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+newman_tests:
+  stage: test
+  image:
+    name: postman/newman_alpine33
+    entrypoint: [""]
+  script:
+    - newman --version
+    - newman run postman_collection.json
+
+test:
+  stage: test
+  script: npm run test
+
+build:
+  stage: build
+  script:
+    - npm run build
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deployment goes here"
