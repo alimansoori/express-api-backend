@@ -5,9 +5,7 @@ services:
     build: .
     image: node-app
     ports:
-      - '8080:8080'
-#    depends_on:
-#      - postgresdb
+      - ${PORT}:8080
     volumes:
       - .:/usr/src/node-app
       - /usr/src/node-app/node_modules
