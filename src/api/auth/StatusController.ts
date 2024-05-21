@@ -1,14 +1,16 @@
 import {Param, Body, Get, Post, Put, Delete, UseBefore, JsonController, Req, Res} from 'routing-controllers';
 import {Service} from "typedi";
 import {Request, Response} from "express";
+import prisma from "../../app/client";
 
 @Service()
 @JsonController('/status')
 export class StatusController {
     @Get('/')
     async getAll(@Req() req: Request, @Res() res: Response) {
+
         return res.status(200).send({
-            status: 'OK'
+            status: 'OK',
         })
     }
 

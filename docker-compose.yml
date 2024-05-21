@@ -5,9 +5,12 @@ x-reusable-parts: &node-modules-volume
 services:
   node-app:
     build: .
+    container_name: node-app
     image: node-app
     ports:
       - ${PORT}:8080
+    depends_on:
+      - postgresdb
     volumes:
       - .:/usr/src/node-app
       - *node-modules-volume
@@ -15,6 +18,26 @@ services:
       - node-network
     env_file:
       - ./.env
+
+  postgresdb:
+    image: postgres
+    container_name: postgresdb
+    restart: always
+    environment:
+      - POSTGRES_DB=${DATABASE_DB}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASS}
+    ports:
+      - ${DATABASE_PORT}:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - node-network
+
+volumes:
+  db_data:
+    driver: local
+
 networks:
   node-network:
     driver: bridge

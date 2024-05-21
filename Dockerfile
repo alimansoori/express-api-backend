@@ -18,4 +18,6 @@ RUN yarn install --pure-lockfile
 # Copy the rest of the application and give rights to node user
 COPY --chown=node:node . .
 
+RUN npx prisma generate
+
 EXPOSE 3000
