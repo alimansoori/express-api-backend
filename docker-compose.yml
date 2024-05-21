@@ -1,4 +1,6 @@
 version: '3.8'
+x-reusable-parts: &node-modules-volume
+                    /usr/src/node-app/node_modules
 
 services:
   node-app:
@@ -8,12 +10,11 @@ services:
       - ${PORT}:8080
     volumes:
       - .:/usr/src/node-app
-      - /usr/src/node-app/node_modules
+      - *node-modules-volume
     networks:
       - node-network
     env_file:
       - ./.env
-
 networks:
   node-network:
     driver: bridge
