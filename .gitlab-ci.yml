@@ -5,6 +5,7 @@ stages:
   - test
   - build
   - deploy
+  - post_deploy
 
 cache:
   paths:
@@ -17,15 +18,6 @@ install_dependencies:
   artifacts:
     paths:
       - node_modules/
-
-newman_tests:
-  stage: test
-  image:
-    name: postman/newman_alpine33
-    entrypoint: [""]
-  script:
-    - newman --version
-    - newman run postman_collection.json
 
 test:
   stage: test
@@ -40,3 +32,12 @@ deploy:
   stage: deploy
   script:
     - echo "Deployment goes here"
+
+newman_tests:
+  stage: post_deploy
+  image:
+    name: postman/newman_alpine33
+    entrypoint: [""]
+  script:
+    - newman --version
+    - newman run postman_collections/api-test.json

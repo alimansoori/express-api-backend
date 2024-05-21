@@ -11,8 +11,8 @@ const app = createExpressServer({
         undefinedResultCode: 204
     },
     routePrefix: '/api',
-    controllers: [baseDir + '/controllers/*{.js,.ts}'],
-    middlewares: [baseDir + '/middlewares/*{.js,.ts}']
+    controllers: [baseDir + '/**/*/*Controller{.js,.ts}'],
+    middlewares: [baseDir + '/**/*/*Middleware{.js,.ts}']
 })
 
 app.use(bodyParser.urlencoded({ extended: true }))
