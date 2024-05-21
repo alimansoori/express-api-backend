@@ -1,5 +1,5 @@
 import {Param, Body, Get, Post, Put, Delete, UseBefore, JsonController, Req, Res} from 'routing-controllers';
-import {AllControllerActionsMiddleware} from "../../middlewares/AllControllerActionsMiddleware";
+import {AllControllerActionsMiddleware} from "../../app/middlewares/AllControllerActionsMiddleware";
 import {Service} from "typedi";
 import {Request, Response} from "express";
 

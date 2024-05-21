@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node ./build/app.js",
-    "dev": "ts-node-dev --poll --respawn --transpile-only --exit-child ./src/app.ts",
+    "start": "npm run build && node ./build/app/index.js",
+    "dev": "ts-node-dev --poll --respawn --transpile-only --exit-child src/app/index.ts",
     "build": "rimraf ./build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
