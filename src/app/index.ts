@@ -8,4 +8,4 @@ const index = createExpressServer(serverOptions);
 applyMiddlewares(index);
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 8080;
-index.listen(PORT, "localhost", handleServerListening).on("error", handleError);
+index.listen(PORT, "0.0.0.0", handleServerListening).on("error", handleError);
