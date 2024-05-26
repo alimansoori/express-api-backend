@@ -1,7 +1,7 @@
 
 version: '3.8'
 services:
-  db:
+  postgresdb:
     image: postgres
     restart: always
     container_name: postgresdb-util-test

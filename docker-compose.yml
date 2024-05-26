@@ -11,6 +11,8 @@ services:
       - ${PORT}:8080
     depends_on:
       - postgresdb
+    environment:
+      DATABASE_URL: "postgresql://postgres:secret@postgresdb:5432/api_db"
     volumes:
       - .:/usr/src/node-app
       - *node-modules-volume
