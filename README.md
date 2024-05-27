@@ -75,7 +75,7 @@ cp .env.example .env
 Running locally:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Running in production:
@@ -88,58 +88,58 @@ Testing:
 
 ```bash
 # run all tests
-yarn test
+npm run test
 
 # run all tests in watch mode
-yarn test:watch
+npm run test:watch
 
 # run test coverage
-yarn coverage
+npm run coverage
 ```
 
 Database:
 
 ```bash
 # push changes to db
-yarn db:push
+npm run db:push
 
 # start prisma studio
-yarn db:studio
+npm run db:studio
 ```
 
 Docker:
 
 ```bash
 # run docker container in development mode
-yarn docker:dev
+npm run docker:dev
 
 # run docker container in production mode
-yarn docker:prod
+npm run docker:prod
 
 # run all tests in a docker container
-yarn docker:test
+npm run docker:test
 
 # run docker container with PostgreSQL db
-yarn docker:dev-db:start
+npm run docker:dev-db:start
 
 # stop docker container with PostgreSQL db
-yarn docker:dev-db:stop
+npm run docker:dev-db:stop
 ```
 
 Linting:
 
 ```bash
 # run ESLint
-yarn lint
+npm run lint
 
 # fix ESLint errors
-yarn lint:fix
+npm run lint:fix
 
 # run prettier
-yarn prettier
+npm run prettier
 
 # fix prettier errors
-yarn prettier:fix
+npm run prettier:fix
 ```
 
 ## Environment Variables
