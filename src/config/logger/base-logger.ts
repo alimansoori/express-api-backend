@@ -28,6 +28,7 @@ export abstract class BaseLogger {
                     stderrLevels: ['error']
                 }),
                 new winston.transports.File({ filename: 'tmp/error.log', level: 'error' }),
+                new winston.transports.File({ filename: 'tmp/combined.log' })
             ]
         })
     }
